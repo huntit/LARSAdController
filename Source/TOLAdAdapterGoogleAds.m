@@ -105,6 +105,8 @@
     
 #if TARGET_IPHONE_SIMULATOR
 //    request.testDevices = [NSArray arrayWithObjects:GAD_SIMULATOR_ID, nil];
+    request.testDevices = [NSArray arrayWithObjects:kDFPSimulatorID, nil];
+    
 #endif
     
     [self.bannerView loadRequest:request];

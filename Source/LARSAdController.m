@@ -130,7 +130,8 @@ CGFloat const kLARSAdContainerHeightPod = 50.0f;
     self.parentView = view;
     
     if (![view.subviews containsObject:_containerView]) {
-        self.currentOrientation = viewController.interfaceOrientation;
+//        self.currentOrientation = viewController.interfaceOrientation;
+        self.currentOrientation = [[UIApplication sharedApplication] statusBarOrientation];
         
         [self layoutContainerView];
         [view addSubview:self.containerView];
@@ -146,7 +147,8 @@ CGFloat const kLARSAdContainerHeightPod = 50.0f;
 
     [self registerForDeviceRotationNotifications];
     
-    [self layoutBannerViewsForCurrentOrientation:viewController.interfaceOrientation];
+//    [self layoutBannerViewsForCurrentOrientation:viewController.interfaceOrientation];
+    [self layoutBannerViewsForCurrentOrientation: [[UIApplication sharedApplication] statusBarOrientation]];
 }
 
 - (LARSAdContainer *)containerView {
@@ -785,7 +787,8 @@ CGFloat const kLARSAdContainerHeightPod = 50.0f;
          delay:0.f
          options:options
          animations:^{
-             [self layoutBannerViewsForCurrentOrientation:self.parentViewController.interfaceOrientation];
+             //[self layoutBannerViewsForCurrentOrientation:self.parentViewController.interfaceOrientation];
+             [self layoutBannerViewsForCurrentOrientation: [[UIApplication sharedApplication] statusBarOrientation]];
          }
          completion:nil];
     });

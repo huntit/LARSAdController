@@ -84,8 +84,11 @@
     
     self.bannerView.rootViewController = viewController;
     
-    [self layoutBannerForInterfaceOrientation:viewController.interfaceOrientation
-                                 forContainer:self.bannerView.superview];
+//    [self layoutBannerForInterfaceOrientation:viewController.interfaceOrientation
+//                                 forContainer:self.bannerView.superview];
+    [self layoutBannerForInterfaceOrientation: [[UIApplication sharedApplication] statusBarOrientation]
+                                 forContainer: self.bannerView.superview];
+    
 }
 
 - (void)setPublisherId:(NSString *)publisherId {
